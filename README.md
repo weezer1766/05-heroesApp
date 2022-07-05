@@ -1,27 +1,27 @@
-# 05HeroesApp
+## 05HeroesApp
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 13.3.6.
+# COMPONENTES A UTILIZAR
 
-## Development server
+Angular Material: https://material.angular.io/
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+# INSTALAR ANGULAR MATERIAL
 
-## Code scaffolding
+1. Ejecutar el siguiente comnado para instalar el Angular Material:
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+ng add @angular/material
 
-## Build
+La versión a instalarse será la @angular/material@13.3.9
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+# APUNTES
 
-## Running unit tests
+1. En la configuración las rutas hijas, se deben configurar los modulos que contienen las definiciones
+de las rutas hijas en el archivo de configuración de rutas principales "app-routing.module.ts" de la 
+siguiente manera, por ejemplo:
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+{path: 'auth', loadChildren: () => import('./auth/auth.module').then(module => module.AuthModule)},
 
-## Running end-to-end tests
+La sentencia anterior es la clave del "lazyload", esto significa cuando alguien ingrese al path: 'auth'
+carga sus hijos (loadChildren), y este modulo hijo a cargar se debe importar de "import('./auth/auth.module')"
+cuando el resultado de la sentencia anterior se cargue en memoria entonces el modulo que va a regresar es el
+module.AuthModule ("then(module => module.AuthModule)").
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
