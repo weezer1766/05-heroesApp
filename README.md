@@ -94,4 +94,9 @@ module.AuthModule ```("then(module => module.AuthModule)").```
 
 ```https://fonts.google.com/icons```
 
+3. En la carpeta environments se pueden configurar archivos que permiten definir variables de entorno para diferentes
+etapas de desarrollo (desa, test o producción); de esta forma podemos definir variables que contienen por ejemplo 
+las rutas de los endpoints para diferentes entornos. Así mismo, cuando se vaya a utilizar la constante ```enviroments```,
+nos debemos asegurar de borrar al final la extensión:
 
+```import { environment } from '../../../environments/environment';```
