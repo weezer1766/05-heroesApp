@@ -100,3 +100,19 @@ las rutas de los endpoints para diferentes entornos. Así mismo, cuando se vaya 
 nos debemos asegurar de borrar al final la extensión:
 
 ```import { environment } from '../../../environments/environment';```
+
+4. Para ver una ruta en la consola en el typescript se debera colocar la siguiente sentencia: 
+
+```console.log(this.router.url.includes('editar'));```
+
+5. Los pipes se clasifican en puros e impuros, los puros permiten ejecutarse cada vez que el argumento cambia, pero en el 
+caso de heroes el objeto ```heroe``` es un objeto, cuando se cambia el valor de una propiedad de un objeto, el objeto sigue
+siendo el mismo y por esta razón no se vuelve a disparar, si necesitamos que el pipe se vuelva a disparar cada vez que el 
+ciclo de detección de cambios se dispare entonces debemos colocar el ```pure: false``` ya que será el ciclo de detección de
+cambios lo que estaremos evaluando y no el valor del argumento que es un objeto. Sin embargo, se debe tener cuidado con trabajar
+con pipes impuros ```pure: false```ya que se disparan cada vez que algo cambia en la aplicación indeferentemente de que haya sido
+la imagen o cualquier otro objeto o variable.
+
+6. Se recomienda utilizar el operador spread ```{...object}``` con la finalidad de evitar enviar por referencia el objeto hacia 
+el dialogo, de esta manera nos aseguramos que si en componente que se usará como dialogo se modifica el objeto no impacte o no 
+pase por referencia dicho cambio al objeto original

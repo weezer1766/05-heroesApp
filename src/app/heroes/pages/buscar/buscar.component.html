@@ -23,7 +23,7 @@
         <mat-option *ngFor="let heroe of heroes" [value]="heroe">
           {{ heroe.superhero }}
         </mat-option>
-        <mat-option *ngIf="(!heroes || heroes?.length===0) && (termino != '' || termino.trim().length>0)" [value]="">
+        <mat-option disabled *ngIf="(!heroes || heroes?.length===0) && (termino != '' || termino.trim().length>0)" [value]="">
           No se encontró nada con el término {{termino}}
         </mat-option>
 
