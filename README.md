@@ -115,4 +115,16 @@ la imagen o cualquier otro objeto o variable.
 
 6. Se recomienda utilizar el operador spread ```{...object}``` con la finalidad de evitar enviar por referencia el objeto hacia 
 el dialogo, de esta manera nos aseguramos que si en componente que se usará como dialogo se modifica el objeto no impacte o no 
-pase por referencia dicho cambio al objeto original
+pase por referencia dicho cambio al objeto original.
+
+7. El operador ```tap``` de ```rxjs``` permite generar efectos secundarios cuando se ejecuta un observable.
+
+8. CanLoad: Este método de los guards sirve para prevenir que el usuario cargue un módulo determinado, estos métodos se configuran en el archivo donde se tiene configurado el routing en este caso en el archivo ```app-routing.module.ts```:
+
+```{path: 'heroes', loadChildren: () => import('./heroes/heroes.module').then(m => m.HeroesModule), canLoad: [AuthGuard]},```
+
+Sin embargo, este método tiene una debilidad que es que cuando ya se cargo el módulo, por primera vez, que esta condicionado bajo este método, si se intenta volver a ingresar, se permite el ingreso ya que ya esta cargado en memoria, por esta razón se aconseja configurarlo en conjunto con el CanActivate
+
+9. of: esta función sirve para crear observables en base al argumento que se le coloca por ejemplo:
+
+```return of(false);```
